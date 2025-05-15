@@ -1,0 +1,258 @@
+programa {
+  funcao inicio() {
+    
+  }
+}
+algoritmo "exercicios_portugol"
+var
+    A, B, C, num, idade, nasc, anos, meses, dias, opPagto : inteiro
+    salarioMin, salarioUser, valor, altura, peso, imc : real
+    nota1, nota2, nota3, nota4, media : real
+    nome : caractere
+    bool1, bool2 : logico
+    lado1, lado2, lado3 : real
+    fahrenheit, celsius : real
+    alturaFrancisco, alturaSara : real
+    anosPassados : inteiro
+    horaAula, numAulas, percDesconto, salarioBruto, salarioLiquido : real
+    tempo, velocidade, distancia, litrosUsados : real
+    i, tabuadaNum, aleatorio, quociente, resto : inteiro
+inicio
+    // 1
+    escreva("Digite A, B e C: ")
+    leia(A, B, C)
+    se (A + B < C) entao
+        escreval("A + B é menor que C")
+    senao
+        escreval("A + B não é menor que C")
+    fimse
+
+    // 2
+    escreva("Digite um número: ")
+    leia(num)
+    se (num mod 2 = 0) entao
+        escreval("Par")
+    senao
+        escreval("Ímpar")
+    fimse
+    se (num >= 0) entao
+        escreval("Positivo")
+    senao
+        escreval("Negativo")
+    fimse
+
+    // 3
+    escreva("Digite A e B: ")
+    leia(A, B)
+    se (A = B) entao
+        C <- A + B
+    senao
+        C <- A * B
+    fimse
+    escreval("Resultado C: ", C)
+
+    // 4
+    escreva("Digite um número inteiro: ")
+    leia(num)
+    escreval("Antecessor: ", num - 1)
+    escreval("Sucessor: ", num + 1)
+
+    // 5
+    escreva("Digite o salário do usuário: ")
+    leia(salarioUser)
+    salarioMin <- 1293.20
+    escreval("Você ganha ", salarioUser / salarioMin, " salários mínimos")
+
+    // 6
+    escreva("Digite um valor: ")
+    leia(valor)
+    escreval("Com reajuste de 5%: ", valor * 1.05)
+
+    // 7
+    escreva("Digite dois valores lógicos (1 para VERDADEIRO, 0 para FALSO): ")
+    leia(A, B)
+    bool1 <- (A = 1)
+    bool2 <- (B = 1)
+    se (bool1 e bool2) ou (não bool1 e não bool2) entao
+        escreval("Ambos são iguais")
+    senao
+        escreval("São diferentes")
+    fimse
+
+    // 8
+    escreva("Digite três valores diferentes: ")
+    leia(A, B, C)
+    se (A >= B) e (A >= C) entao
+        se (B >= C) entao
+            escreval(A, " ", B, " ", C)
+        senao
+            escreval(A, " ", C, " ", B)
+        fimse
+    senao
+        se (B >= A) e (B >= C) entao
+            se (A >= C) entao
+                escreval(B, " ", A, " ", C)
+            senao
+                escreval(B, " ", C, " ", A)
+            fimse
+        senao
+            se (A >= B) entao
+                escreval(C, " ", A, " ", B)
+            senao
+                escreval(C, " ", B, " ", A)
+            fimse
+        fimse
+    fimse
+
+    // 9
+    escreva("Digite o peso e altura: ")
+    leia(peso, altura)
+    imc <- peso / (altura * altura)
+    escreval("IMC: ", imc)
+    se imc < 18.5 entao
+        escreval("Abaixo do peso")
+    senao se imc <= 24.9 entao
+        escreval("Peso ideal")
+    senao se imc <= 29.9 entao
+        escreval("Levemente acima do peso")
+    senao se imc <= 34.9 entao
+        escreval("Obesidade grau I")
+    senao se imc <= 39.9 entao
+        escreval("Obesidade grau II")
+    senao
+        escreval("Obesidade grau III")
+    fimse
+
+    // 10
+    escreva("Digite três notas: ")
+    leia(nota1, nota2, nota3)
+    media <- (nota1 + nota2 + nota3) / 3
+    escreval("Média: ", media)
+
+    // 11
+    escreva("Digite o nome do aluno e quatro notas: ")
+    leia(nome, nota1, nota2, nota3, nota4)
+    media <- (nota1 + nota2 + nota3 + nota4) / 4
+    escreval("Aluno: ", nome)
+    se media >= 7 entao
+        escreval("Aprovado")
+    senao
+        escreval("Reprovado")
+    fimse
+
+    // 12
+    escreva("Digite o valor do produto e o código da forma de pagamento: ")
+    leia(valor, opPagto)
+    escolha opPagto
+        caso 1
+            valor <- valor * 0.85
+        caso 2
+            valor <- valor * 0.90
+        caso 3
+            // sem alteração
+        caso 4
+            valor <- valor * 1.10
+        outrocaso
+            escreval("Código inválido")
+    fimescolha
+    escreval("Valor a pagar: ", valor)
+
+    // 13
+    escreva("Digite seu nome e idade: ")
+    leia(nome, idade)
+    escreva(nome, " é ")
+    se idade >= 18 entao
+        escreval("maior de idade")
+    senao
+        escreval("menor de idade")
+    fimse
+
+    // 14
+    escreva("Digite A e B: ")
+    leia(A, B)
+    C <- A
+    A <- B
+    B <- C
+    escreval("A: ", A, " B: ", B)
+
+    // 15
+    escreva("Digite o ano de nascimento: ")
+    leia(nasc)
+    anos <- 2025 - nasc
+    meses <- anos * 12
+    dias <- anos * 365
+    escreval(anos, " anos, ", meses, " meses, ", dias, " dias")
+
+    // 16
+    escreva("Digite três lados do triângulo: ")
+    leia(lado1, lado2, lado3)
+    se (lado1 + lado2 > lado3) e (lado1 + lado3 > lado2) e (lado2 + lado3 > lado1) entao
+        se (lado1 = lado2) e (lado2 = lado3) entao
+            escreval("Triângulo Equilátero")
+        senao se (lado1 = lado2) ou (lado1 = lado3) ou (lado2 = lado3) entao
+            escreval("Triângulo Isósceles")
+        senao
+            escreval("Triângulo Escaleno")
+        fimse
+    senao
+        escreval("Não é um triângulo válido")
+    fimse
+
+    // 17
+    escreva("Digite a temperatura em Fahrenheit: ")
+    leia(fahrenheit)
+    celsius <- (5 * (fahrenheit - 32)) / 9
+    escreval("Celsius: ", celsius)
+
+    // 18
+    alturaFrancisco <- 1.50
+    alturaSara <- 1.10
+    anosPassados <- 0
+    enquanto alturaSara <= alturaFrancisco faca
+        alturaFrancisco <- alturaFrancisco + 0.02
+        alturaSara <- alturaSara + 0.03
+        anosPassados <- anosPassados + 1
+    fimenquanto
+    escreval("Sara será maior em ", anosPassados, " anos")
+
+    // 19
+    para i de 1 ate 10 faca
+        para tabuadaNum de 1 ate 10 faca
+            escreval(i, " x ", tabuadaNum, " = ", i * tabuadaNum)
+        fimpara
+    fimpara
+
+    // 20
+    escreva("Digite um número para ver a tabuada: ")
+    leia(tabuadaNum)
+    para i de 1 ate 10 faca
+        escreval(tabuadaNum, " x ", i, " = ", tabuadaNum * i)
+    fimpara
+
+    // 21
+    aleatorio <- inteiro(aleatorio() * 101)
+    escreval("Valor aleatório entre 0 e 100: ", aleatorio)
+
+    // 22
+    escreva("Digite dois valores inteiros A e B: ")
+    leia(A, B)
+    quociente <- A div B
+    resto <- A mod B
+    escreval("Quociente: ", quociente)
+    escreval("Resto: ", resto)
+
+    // 21 (corrigido: cálculo salário líquido professor)
+    escreva("Digite o valor da hora aula, número de aulas e % de desconto do INSS: ")
+    leia(horaAula, numAulas, percDesconto)
+    salarioBruto <- horaAula * numAulas
+    salarioLiquido <- salarioBruto * (1 - percDesconto / 100)
+    escreval("Salário líquido: R$ ", salarioLiquido)
+
+    // 22 (cálculo de combustível)
+    escreva("Digite o tempo de viagem (h) e velocidade média (km/h): ")
+    leia(tempo, velocidade)
+    distancia <- tempo * velocidade
+    litrosUsados <- distancia / 12
+    escreval("Distância: ", distancia, " km")
+    escreval("Litros usados: ", litrosUsados, " L")
+fimalgoritmo
